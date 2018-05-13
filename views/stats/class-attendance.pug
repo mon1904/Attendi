@@ -1,0 +1,25 @@
+extends ../layout
+
+block content
+  .container
+    .col-md-6.center.float-none
+      h2 Classes
+        table.table.table-bordered.table-hover
+          thead.thead-light
+            tr
+              th(scope="col") Month
+              th(scope="col") Total No. of Students
+              th(scope="col") Total Present
+              th(scope="col") Total Absent
+              th(scope="col") %
+
+          tbody
+          each stats in statsModel
+            tr
+              td= stats.month
+              td= stats.totalNo
+              td= stats.totalPresent
+              td= stats.totalAbsent
+              td= stats.absentPercent.toFixed(2)
+
+      a.btn.btn-primary(type='submit', href='/') Cancel

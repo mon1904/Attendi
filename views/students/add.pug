@@ -1,0 +1,40 @@
+extends ../layout
+
+
+block content
+  h1 #{title}
+
+  //-  each error, i in errors
+    div.alter.alter-danger  #{error.msg}
+  form(method='POST', action='/students/add', id='createForm')
+      .form-group
+       label First Name
+       input.form-control(for='courseNum', name='firstname', type='text', placeholder='Enter First Name')
+      .form-group
+       label Last Name
+       input.form-control(for='courseName', name='lastname', type='text', placeholder='Enter Last Name')
+      .form-group
+       label Gender
+       input.form-control(name='gender', type='text', placeholder='Enter Gender')
+       .form-group
+       label Date of birth
+       input.form-control(name='dob', type='date')
+      .form-group
+       label Address
+       input.form-control(name='address', type='text', placeholder='Enter Address')
+      .form-group
+       label PPS
+       input.form-control(name='pps', type='text', placeholder='Enter PPS')
+      .form-group
+       label Doctor Name
+       input.form-control(name='doctorName', type='text', placeholder='Enter Doctor Name')
+      .form-group
+       label Doctor Phone
+       input.form-control(name='doctorPhone', type='text', placeholder='Enter Doctor Phone')
+      .form-group
+      label Profile Image
+      input.form-control(name='profileImage', type='file')
+      br
+      br
+      input.btn.btn-primary(type='submit', value='Submit')
+      a.btn.btn-primary(type='submit', href='/students') Cancel

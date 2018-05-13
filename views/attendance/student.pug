@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+  .container
+    .col-md-6.center.float-none
+      .student
+        h2 Attendance History
+        table.table.table-bordered
+          thead.thead-light
+            tr
+              th(scope="col") Date
+              th(scope="col") Status
+          tbody
+          each att in attendanceHistory
+            tr
+              td= moment(att.date).format('DD-MM-YYYY')
+              td= att.status

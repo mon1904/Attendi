@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  .homepage
+    h1 Welcome to Attendi
+    h2 You are currently logged in as: #{user.username}
+    .homepage-content
+    if notices
+      .col-md-5.float-none
+        h2 Birthdays
+          table.table.table-bordered.table-hover
+            thead.thead-light
+              tr
+                th(scope="col") Name
+                th(scope="col") D.O.B
+            tbody
+            each birthday in birthdays
+              tr
+                td #{birthday.details.firstname} #{birthday.details.lastname}
+                td= moment(birthday.dob).format('YYYY-MM-DD')
+      .col-md-5.float-none
+        h2 Students to Monitor
+          table.table.table-bordered.table-hover
+            thead.thead-light
+              tr
+                th(scope="col") Name
+                th(scope="col") Absence Count
+            tbody
+            each student in studentsToMonitor
+              tr
+                td #{student.details.firstname} #{student.details.lastname}
+                td= student.absenceCnt

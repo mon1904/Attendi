@@ -1,0 +1,32 @@
+extends ../layout
+
+block content
+  .container
+    .col-md-6.center.float-none
+      .student
+        h2 List of Students
+          table.table.table
+            each student in students
+              tr
+                td(scope="col") First Name
+                td= student.details.firstname
+              tr
+                td(scope="col") Last Name
+                td #{student.details.lastname}
+              tr
+                td(scope="col") Gender
+                td= student.details.gender
+              tr
+                td(scope="col") DOB
+                td= moment(students.dob).format('YYYY-MM-DD')
+              tr
+                td(scope="col") Doctor Name
+                td= student.doctorName
+              tr
+                td(scope="col") Doctor Phone
+                td= student.doctorPhone
+              tr
+                td
+                  a.btn.btn-primary(href='/graphs/student/'+student._id) View Graphs
+                td
+                  a.btn.btn-primary(href='/attendance/student/'+student._id) View History

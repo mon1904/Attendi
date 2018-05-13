@@ -1,0 +1,36 @@
+extends ../layout
+
+block content
+  .container
+    .col-md-6.center.float-none
+      .userProfile
+        h2 Your Profile
+        .profilecardUser
+          img(src="/images/blank.png" style="margin-auto" width="250")
+          p
+            hr
+            | First Name:
+            | #{profile.details.firstname}
+            br
+            | Last Name:
+            | #{profile.details.lastname}
+            br
+            | Gender:
+            | #{profile.details.gender}
+            br
+            | Mobile:
+            | #{profile.details.mobile}
+            br
+            | Address:
+            | #{profile.details.address}
+            br
+            | Username:
+            | #{profile.username}
+            br
+            | Email:
+            | #{profile.email}
+            br
+            | Role:
+            | #{profile.role}
+            br
+        a.btn.btn-default(type='submit', href='/') Cancel

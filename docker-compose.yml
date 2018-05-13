@@ -1,0 +1,16 @@
+version: '3'
+services:
+  web:
+    build: .
+    environment:
+      NODE_ENV: docker
+    ports:
+      - "3000:3000"
+    links:
+      - mongodb
+  mongodb:
+    image: "mongo"
+    environment:
+      DB_NAME: attendi
+    ports:
+      - "27017:27017"

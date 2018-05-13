@@ -1,0 +1,27 @@
+doctype html
+html(lang='en')
+  head
+    title Welcome
+    link(href='/stylesheets/bootstrap.min.css', rel='stylesheet')
+    link(href='/stylesheets/style.css', rel='stylesheet')
+  body
+    .container-fluid
+        if user
+          if (user.role =="admin")
+            include navbars/admin.pug
+          else if (user.role =="teacher")
+            include navbars/teacher.pug
+          else if (user.role =="parent")
+            include navbars/parent.pug
+        else
+          include navbars/guest.pug
+    .container
+      != messages('message', locals)
+      block content
+      br
+    footer
+      p
+      | Copyright &copy; Monika 2018
+    script(src='/javascript/jquery-3.3.1.min.js')
+    script(src='/javascript/bootstrap.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js')

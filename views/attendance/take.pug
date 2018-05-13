@@ -1,0 +1,30 @@
+extends ../layout
+
+block content
+  .container
+    .col-md-6.center.float-none
+      .student
+      form(method='POST', action='/attendance/school-class/' + schoolClassId + '/take')
+        h2 Students
+        table.table.table-bordered
+          thead.thead-light
+            tr
+              th(scope="col") First Name
+              th(scope="col") Last Name
+              th(scope="col") Present
+              th(scope="col") Absent
+              th(scope="col") Late
+          tbody
+          each student in students
+            tr
+              td= student.details.firstname
+              td= student.details.lastname
+              td
+                input(type='radio', name='status_'+student._id, value='present')
+              td
+                input(type='radio', name='status_'+student._id, value='absent')
+              td
+                input(type='radio', name='status_'+student._id, value='late')
+          br
+        input.btn.btn-primary(type='submit', name='submit', value='Submit')
+        a.btn.btn-primary(type='submit', href='/school-classes') Cancel

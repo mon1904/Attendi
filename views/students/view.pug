@@ -1,0 +1,75 @@
+extends ../layout
+
+block content
+  .containerforStudents
+    .col-md-7.center.float-none
+      .studentProfile
+        .profilecardUser
+          img(src="/images/blank.png" style="margin-auto" width="250")
+          p
+            h2 Student Details
+            hr
+            | Student ID:
+            | #{students.id}
+            br
+            | First Name:
+            | #{students.details.lastname}
+            br
+            | Last Name:
+            | #{students.details.firstname}
+            br
+            | Gender:
+            | #{students.details.gender}
+            br
+            | Date of Birth:
+            | #{moment(students.dob).format('YYYY-MM-DD')}
+            br
+            | Class Name:
+            | #{students.schoolClass}
+            br
+          p
+            hr
+            h2 Parent Details 1
+            | Parent Username:
+            | #{students.parent1.username}
+            br
+            | First Name:
+            | #{students.parent1.details.lastname}
+            br
+            | Last Name:
+            | #{students.parent1.details.firstname}
+            br
+            | Address:
+            | #{td= students.parent1.details.address}
+            br
+            | Phone Number:
+            | #{students.parent1.details.mobile}
+            br
+          p
+            hr
+            h2 Parent Details 2
+            | Parent Username:
+            | #{students.parent2.username}
+            br
+            | First Name:
+            | #{students.parent2.details.lastname}
+            br
+            | Last Name:
+            | #{students.parent2.details.firstname}
+            br
+            | Address:
+            | #{td= students.parent2.details.address}
+            br
+            | Phone Number:
+            | #{students.parent2.details.mobile}
+            br
+          p
+            hr
+            h2 Emergency Contact
+            | Doctor Name:
+            | #{students.doctorName}
+            br
+            | Doctor Phone Number:
+            | #{students.doctorPhone}
+            br
+      a.btn.btn-primary(type='submit', href='/students') Cancel

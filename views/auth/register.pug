@@ -1,0 +1,45 @@
+extends ../layout
+
+block content
+ h2.page-header Register a user
+ h5 Please fill out the form below to register a user
+ if errors
+  each error, i in errors
+   div.alert.alert-danger #{error.msg}
+ form(method='POST', action='/users/register' )
+  .form-group
+   label Email
+   input.form-control(name='email', type='email', placeholder='Enter Email')
+  .form-group
+   label Username
+   input.form-control(name='username', type='text', placeholder='Enter Username')
+  .form-group
+   label Password
+   input.form-control(name='password', type='password', placeholder='Enter Password')
+  .form-group
+   label Confirm Password
+   input.form-control(name='password2', type='password', placeholder='Confirm Password')
+   .form-group
+    label User Role
+      select#propertyType.select.form-control.input-sm(name='role')
+        option(selected= true) -- Select --
+        option(value='teacher') Teacher
+        option(value='parent') Parent
+   .form-group
+    label First Name
+    input.form-control(name='firstname', type='text', placeholder='Enter First Name')
+   .form-group
+    label Last Name
+    input.form-control(name='lastname', type='text', placeholder='Enter Last Name')
+    .form-group
+     label Address
+     input.form-control(name='address', type='text', placeholder='Address')
+   .form-group
+     label Mobile
+     input.form-control(name='mobile', type='number', placeholder='Mobile Number')
+   .form-group
+    label Gender
+    input.form-control(name='gender', type='text', placeholder='Gender')
+   br
+  input.btn.btn-primary(type='submit', name='submit',value='Register')
+  a.btn.btn-primary(type='submit', href='/') Go Back

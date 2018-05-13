@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+  .container-mn
+    h2 Inbox Messages
+    each message in pMessages
+        .media
+            if message.senderRole === user2.role
+                .media-left
+                    h2 #{user2.details.firstname} #{user2.details.lastname}
+            .media-body
+                p= message.message
+            if message.senderRole === user.role
+                .media-right
+                    h2 #{user.details.firstname} #{user.details.lastname}
+    form(method='POST', action='/messages/' + user2.role + '/' + user2._id)
+        .form-group
+            label Message
+            input.form-control(name='message', type='text', id='exp')
+        input.btn.btn-primary(type='submit', name='submit', value='Send Message')
+        a.btn.btn-primary(type='submit', href='/') Cancel

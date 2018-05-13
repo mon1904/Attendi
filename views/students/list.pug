@@ -1,0 +1,38 @@
+extends ../layout
+
+block content
+  .container
+    .col-md-6.left.float-none
+      .student
+        h2 List of Students
+        table.table.table-bordered.mn
+          thead.thead-light
+            tr
+              th(scope="col") First Name
+              th(scope="col") Last Name
+              th(scope="col") Gender
+              th(scope="col") DOB
+              th(scope="col") Parent 1 Id
+              th(scope="col") Parent 2 Id
+              th(scope="col") Class Id
+              th(scope="col") View Profile
+              th(scope="col") Edit Profile
+              th(scope="col") Delete Profile
+          tbody
+          each student in students
+            tr
+              td= student.details.firstname
+              td= student.details.lastname
+              td= student.details.gender
+              td= moment(students.dob).format('YYYY-MM-DD')
+              td= student.parent1
+              td= student.parent2
+              td= student.schoolClass
+              td
+                a.btn.btn-primary(href='/students/view/'+student._id) View
+              td
+                a.btn.btn-primary(href='/students/edit/'+student._id) Edit
+              td
+                a.btn.btn-danger.delete-student(href='/students/delete/'+student._id) Delete
+        a.btn.btn-primary(href='/students/add') Add Student
+        a.btn.btn-primary(type='submit', href='/') Cancel

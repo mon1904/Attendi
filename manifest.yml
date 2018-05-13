@@ -1,0 +1,5 @@
+applications:
+- name: attendi
+  command: npm start
+  instances: 1
+  memory: 1GB

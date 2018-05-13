@@ -1,0 +1,38 @@
+extends ../layout
+
+block content
+  h1 #{title}
+  form(method='POST', action='/users/edit/'+profile._id)
+      .form-group
+       label Email
+       input.form-control(name='email', type='text', value=profile.email)
+      .form-group
+       label Username
+       input.form-control(name='username', type='text', value=profile.username)
+      .form-group
+       label Password
+       input.form-control(name='password', type='password', value=profile.password)
+      .form-group
+       label Confirm Password
+       input.form-control(name='password2', type='password', value=profile.password)
+      .form-group
+       label Role
+       input.form-control(name='role', type='text', value=profile.role)
+      .form-group
+       label First Name
+       input.form-control(name='firstname', type='text', value=profile.details.firstname)
+      .form-group
+       label Last Name
+       input.form-control(name='lastname', type='text', value=profile.details.lastname)
+      .form-group
+       label Gender
+       input.form-control(name='gender', type='text', value=profile.details.gender)
+      .form-group
+       label Address
+       input.form-control(name='address', type='text', value=profile.details.address)
+      .form-group
+       label Mobile
+       input.form-control(name='mobile', type='text', value=profile.details.mobile)
+       br
+      input.btn.btn-primary(type='submit', name='submit',value='Edit Profile')
+      a.btn.btn-primary(type='submit', href='/') Home

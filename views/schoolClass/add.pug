@@ -1,0 +1,20 @@
+extends ../layout
+
+block content
+  h2 #{title}
+  form(method='POST', action='/school-classes/add')
+      .form-group
+        .class
+         label Class Name
+         input.form-control(name='name', type='text', placeholder='Name')
+         br
+         label Select Teacher name
+         br
+         select(name='teacher')
+          option(value='') Not available
+          each teacher in teachers
+            option(value=''+teacher._id) #{teacher.details.firstname} #{teacher.details.lastname}
+         br
+         br
+         input.btn.btn-primary(type='submit', value='Submit')
+         a.btn.btn-primary(type='submit', href='/') Cancel

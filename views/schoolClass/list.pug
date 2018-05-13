@@ -1,0 +1,29 @@
+extends ../layout
+
+block content
+  .container
+    .col-md-6.center.float-none
+      h2 Classes
+        table.table.table-bordered.table-hover
+          thead.thead-light
+            tr
+              th(scope="col") Name
+              th(scope="col") Teacher ID
+              th(scope="col") View Class
+              th(scope="col") Take Attendance
+              th(scope="col") Set Teacher
+              th(scope="col") View Stats
+          tbody
+          each schoolClass in schoolClasses
+            tr
+              td= schoolClass.name
+              td= schoolClass.teacher
+              td
+                a(href='/school-classes/'+schoolClass._id) View class
+              td
+                a(href='/attendance/school-class/'+schoolClass._id+'/take') Take Attendance
+              td
+                a(href='/school-classes/'+schoolClass._id+'/teacher/set') Set Teacher
+              td
+                a(href='/stats/school-class/'+schoolClass._id) View Statistics
+        a.btn.btn-primary(type='submit', href='/') Cancel

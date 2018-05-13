@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+  .container
+    .article-wrapper
+      .col-md-6.center.float-none
+        h2 List Teachers
+        ul.list-group
+          each teacher in teachers
+            li.list-group-item
+              a(href='/users/edit/'+teacher._id) #{teacher.details.firstname} #{teacher.details.lastname}
+              span
+                a.btn.btn-primary.pull-right(href='/users/edit/'+teacher._id) Edit
+              span
+                a.btn.btn-primary.pull-right(href='/users/view/'+teacher._id) View
+        a.btn.btn-primary(href='/users/register') Add Teacher
+        a.btn.btn-primary(type='submit', href='/') Home

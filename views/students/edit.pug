@@ -1,0 +1,52 @@
+extends ../layout
+
+block content
+  h1 #{title}
+  form(method='POST', action='/students/edit/'+student._id)
+      .form-group
+       label First Name
+       input.form-control(name='firstname', type='text', value=student.details.firstname)
+      .form-group
+       label Last Name
+       input.form-control(name='lastname', type='text', value=student.details.lastname)
+       .form-group
+       label Address
+       input.form-control(name='address', type='text', value=student.details.address)
+      .form-group
+       label Gender
+       input.form-control(name='gender', type='text', value=student.details.gender)
+       .form-group
+       label Date of birth
+       input.form-control(name='dob', type='text', value=student.dob)
+      .form-group
+       label PPS
+       input.form-control(name='pps', type='text', value=student.pps)
+      .form-group
+       label Doctor Name
+       input.form-control(name='doctorName', type='text', value=student.doctorName)
+       .form-group
+       label Doctor Phone
+       input.form-control(name='doctorPhone', type='text', value=student.doctorPhone)
+       label Profile Image
+       input.form-control(name='profileimage', type='file', value=student.profileimage)
+       .form-group
+       label Parent 1
+       select(name='parent1')
+        option(value='') Not available
+        each parent in parents
+          option(value=''+parent._id) #{parent.details.firstname} #{parent.details.lastname}
+       .form-group
+       label Parent 2
+       select(name='parent2')
+        option(value='') Not available
+        each parent in parents
+          option(value=''+parent._id) #{parent.details.firstname} #{parent.details.lastname}
+       .form-group
+       Label Class
+       select(name='class')
+        option(value='') Not available
+        each schoolClass in schoolClasses
+          option(value=''+schoolClass._id) #{schoolClass.name}
+       br
+      input.btn.btn-primary(type='submit', name='submit', value='Submit')
+      a.btn.btn-primary(type='submit', href='/students') Cancel

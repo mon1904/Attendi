@@ -1,0 +1,11 @@
+extends ../layout
+
+block content
+  .container
+    .message-wrapper
+      .col-md-6.center.float-none
+        h3 Message Parent
+        ul.list-group
+          each parent in parents
+            li.list-group-item
+              a(href='/messages/parent/'+parent._id) #{parent.details.firstname} #{parent.details.lastname} (#{parent.notifCnt})
