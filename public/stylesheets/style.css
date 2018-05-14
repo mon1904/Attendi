@@ -479,7 +479,7 @@ p {
 }
 
 /*------------ Media ------------*/
-@media (min-width: 768px) and (max-width: 1024px)  {
+@media (min-width: 768px) and (max-width: 992px)  {
 .navbar {
   box-shadow: 5px 5px 25px #000;
   -moz-box-shadow: 5px 5px 25px #000;
