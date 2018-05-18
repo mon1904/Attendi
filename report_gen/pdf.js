@@ -1,14 +1,3 @@
-// var pdffiller = require('pdffiller');
-
-
-// var sourcePDF = 'report_templates/template.pdf';
-// var destPDF = 'out.pdf';
-
-// pdffiller.generateFDFTemplate(sourcePDF, null, (err, fdfData) => {
-//     if(err) throw err;
-//     console.log(fdfData);
-// })
-
 var hummus = require('hummus');
 
 let dummyData = {
